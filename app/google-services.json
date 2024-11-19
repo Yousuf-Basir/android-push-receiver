@@ -1,0 +1,323 @@
+{
+  "project_info": {
+    "project_number": "874421273888",
+    "firebase_url": "https://doctorachen-bf6e9.firebaseio.com",
+    "project_id": "doctorachen-bf6e9",
+    "storage_bucket": "doctorachen-bf6e9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874421273888:android:4584850eddd5b5d39b0345",
+        "android_client_info": {
+          "package_name": "com.da.doctor_achen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874421273888-aorl5q19r5nti66ulggh31dep148moqf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.da.doctor_achen",
+            "certificate_hash": "8eb5339365c225d17612176fd4230deba0ebe916"
+          }
+        },
+        {
+          "client_id": "874421273888-i8oqsf5h7o4mbgri67hmpdvlrhu85gqg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.da.doctor_achen",
+            "certificate_hash": "087f17da062f3f4b49db025ab14bd5d857ef1370"
+          }
+        },
+        {
+          "client_id": "874421273888-osr914vlc72pc6l4t6iu4kuo6uic5hcb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.da.doctor_achen",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMJT1yzhnmjcANEszAhWOFQO6Xuyjo-lw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874421273888:android:7d7201055ff6158e9b0345",
+        "android_client_info": {
+          "package_name": "com.da.sathei_achi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874421273888-1995o9ras2lj0raavbt0bvmuqof300u3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.da.sathei_achi",
+            "certificate_hash": "087f17da062f3f4b49db025ab14bd5d857ef1370"
+          }
+        },
+        {
+          "client_id": "874421273888-bmd81iht2kan52ljrkq0pfiodi722lrd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.da.sathei_achi",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMJT1yzhnmjcANEszAhWOFQO6Xuyjo-lw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874421273888:android:0a9ac05451b84ca39b0345",
+        "android_client_info": {
+          "package_name": "com.da.sathei_achi.training"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874421273888-7glkj692fmsn4i87ls9aghu64ppp3hk3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.da.sathei_achi.training",
+            "certificate_hash": "087f17da062f3f4b49db025ab14bd5d857ef1370"
+          }
+        },
+        {
+          "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMJT1yzhnmjcANEszAhWOFQO6Xuyjo-lw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874421273888:android:3c806d23747fc78d",
+        "android_client_info": {
+          "package_name": "com.doctor_achen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874421273888-1sbliaep3i45vj614flm1m8b78cleucb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.doctor_achen",
+            "certificate_hash": "087f17da062f3f4b49db025ab14bd5d857ef1370"
+          }
+        },
+        {
+          "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMJT1yzhnmjcANEszAhWOFQO6Xuyjo-lw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874421273888:android:5721482ca52462469b0345",
+        "android_client_info": {
+          "package_name": "com.doctor_achen_agent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874421273888-tvkj316nbt8bb822s46n4sd3r6nk08pb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.doctor_achen_agent",
+            "certificate_hash": "087f17da062f3f4b49db025ab14bd5d857ef1370"
+          }
+        },
+        {
+          "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMJT1yzhnmjcANEszAhWOFQO6Xuyjo-lw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874421273888:android:2f74d19e76ee608f",
+        "android_client_info": {
+          "package_name": "com.doctor_achen_patient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874421273888-s61vm4quogjcnununckuqoh0cpl76pbp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.doctor_achen_patient",
+            "certificate_hash": "087f17da062f3f4b49db025ab14bd5d857ef1370"
+          }
+        },
+        {
+          "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMJT1yzhnmjcANEszAhWOFQO6Xuyjo-lw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874421273888:android:f07d10cbc22a9ddd",
+        "android_client_info": {
+          "package_name": "com.dr_achen_60_v"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874421273888-8ang27927d6mbvrrm76lfricbaabbd1p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dr_achen_60_v",
+            "certificate_hash": "087f17da062f3f4b49db025ab14bd5d857ef1370"
+          }
+        },
+        {
+          "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMJT1yzhnmjcANEszAhWOFQO6Xuyjo-lw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874421273888:android:b763b9394e0efb979b0345",
+        "android_client_info": {
+          "package_name": "com.example.pushreceiver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMJT1yzhnmjcANEszAhWOFQO6Xuyjo-lw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874421273888-gpqm78p18kdte2mvat9intm85fq6di3d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
