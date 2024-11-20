@@ -2,6 +2,7 @@ package com.example.pushreceiver;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -20,19 +21,23 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private static final int PERMISSION_REQUEST_CODE = 100;
+    private static final int OVERLAY_PERMISSION_REQUEST_CODE = 101;
 
     private TextView tokenTextView;
     private TextView notificationPermissionStatus;
     private TextView batteryOptimizationStatus;
+    private TextView overlayPermissionStatus;
     private Button copyTokenButton;
     private Button requestPermissionButton;
     private Button openSettingsButton;
     private Button resetPermissionsButton;
+    private Button requestOverlayPermissionButton;
 
     private Button testSoundButton;
     private Button stopSoundButton;
@@ -40,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
     private boolean isPlaying = false;
     private MaterialCardView tokenCard;
     private MaterialCardView permissionCard;
+
+    private TextInputEditText phoneInput;
+    private Button submitPhoneButton;
+    private String currentFirebaseToken;
+    private MaterialCardView phoneCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,18 +60,96 @@ public class MainActivity extends AppCompatActivity {
         setupClickListeners();
         refreshTokenAndStatus();
         initializeSoundControls();
+        checkOverlayPermission();
+
+        initializePhoneViews();
+        setupPhoneSubmission();
+    }
+
+    private void initializePhoneViews() {
+        phoneInput = findViewById(R.id.phoneInput);
+        submitPhoneButton = findViewById(R.id.submitPhoneButton);
+    }
+
+    private void setupPhoneSubmission() {
+        submitPhoneButton.setOnClickListener(v -> submitPhoneNumber());
+    }
+
+    private void submitPhoneNumber() {
+        String phoneNumber = phoneInput.getText().toString().trim();
+
+        if (phoneNumber.isEmpty()) {
+            phoneInput.setError("Phone number is required");
+            return;
+        }
+
+        String fullPhoneNumber = "+880"+phoneNumber;
+
+        // Show progress
+        submitPhoneButton.setEnabled(false);
+        submitPhoneButton.setText("Registering...");
+
+        // Get the current Firebase token
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        showError("Failed to get Firebase token");
+                        resetSubmitButton();
+                        return;
+                    }
+
+                    String token = task.getResult();
+
+                    ApiClient.getInstance().registerOrUpdatePushToken(fullPhoneNumber, token, new ApiClient.ApiCallback() {
+                        @Override
+                        public void onSuccess() {
+                            runOnUiThread(() -> {
+                                Toast.makeText(MainActivity.this,
+                                        "Phone number registered successfully", Toast.LENGTH_SHORT).show();
+                                resetSubmitButton();
+                                savePhoneNumber(phoneNumber);
+                            });
+                        }
+
+                        @Override
+                        public void onError(String error) {
+                            runOnUiThread(() -> {
+                                showError("Failed to register: " + error);
+                                resetSubmitButton();
+                            });
+                        }
+                    });
+                });
+    }
+
+    private void resetSubmitButton() {
+        submitPhoneButton.setEnabled(true);
+        submitPhoneButton.setText("Register Phone Number");
+    }
+
+    private void showError(String message) {
+        Log.w(TAG, message);
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void savePhoneNumber(String phoneNumber) {
+        SharedPreferences prefs = getSharedPreferences("PushReceiverPrefs", MODE_PRIVATE);
+        prefs.edit().putString("phone_number", phoneNumber).apply();
     }
 
     private void initializeViews() {
         tokenTextView = findViewById(R.id.tokenTextView);
         notificationPermissionStatus = findViewById(R.id.notificationPermissionStatus);
         batteryOptimizationStatus = findViewById(R.id.batteryOptimizationStatus);
+        overlayPermissionStatus = findViewById(R.id.overlayPermissionStatus);
         copyTokenButton = findViewById(R.id.copyTokenButton);
         requestPermissionButton = findViewById(R.id.requestPermissionButton);
         openSettingsButton = findViewById(R.id.openSettingsButton);
         resetPermissionsButton = findViewById(R.id.resetPermissionsButton);
+        requestOverlayPermissionButton = findViewById(R.id.requestOverlayPermissionButton);
         tokenCard = findViewById(R.id.tokenCard);
         permissionCard = findViewById(R.id.permissionCard);
+        phoneCard = findViewById(R.id.phoneCard);
     }
 
     private void setupClickListeners() {
@@ -69,7 +157,36 @@ public class MainActivity extends AppCompatActivity {
         requestPermissionButton.setOnClickListener(v -> requestNotificationPermission());
         openSettingsButton.setOnClickListener(v -> openAppSettings());
         resetPermissionsButton.setOnClickListener(v -> resetAllPermissions());
+        requestOverlayPermissionButton.setOnClickListener(v -> requestOverlayPermission());
     }
+
+    private void checkOverlayPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            boolean hasOverlayPermission = Settings.canDrawOverlays(this);
+            updateOverlayPermissionStatus(hasOverlayPermission);
+            requestOverlayPermissionButton.setVisibility(
+                    hasOverlayPermission ? View.GONE : View.VISIBLE
+            );
+        }
+    }
+
+    private void requestOverlayPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:" + getPackageName()));
+            startActivityForResult(intent, OVERLAY_PERMISSION_REQUEST_CODE);
+        }
+    }
+
+    private void updateOverlayPermissionStatus(boolean hasPermission) {
+        if (overlayPermissionStatus != null) {
+            overlayPermissionStatus.setText("Overlay Permission: " +
+                    (hasPermission ? "Granted ✓" : "Not Granted ✗"));
+            overlayPermissionStatus.setTextColor(getColor(hasPermission ?
+                    android.R.color.holo_green_dark : android.R.color.holo_red_dark));
+        }
+    }
+
 
     private void refreshTokenAndStatus() {
         // Get FCM token
@@ -117,10 +234,24 @@ public class MainActivity extends AppCompatActivity {
         batteryOptimizationStatus.setTextColor(getColor(isBatteryOptimizationDisabled ?
                 android.R.color.holo_green_dark : android.R.color.holo_red_dark));
 
+        // Check overlay permission
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            boolean hasOverlayPermission = Settings.canDrawOverlays(this);
+            updateOverlayPermissionStatus(hasOverlayPermission);
+            requestOverlayPermissionButton.setVisibility(
+                    hasOverlayPermission ? View.GONE : View.VISIBLE
+            );
+        }
+
         // Update button visibility
         requestPermissionButton.setVisibility(!hasNotificationPermission ?
                 View.VISIBLE : View.GONE);
+
+        if(hasNotificationPermission && Settings.canDrawOverlays(this)) {
+            phoneCard.setVisibility(View.VISIBLE);
+        }
     }
+
 
     private void copyTokenToClipboard() {
         String token = tokenTextView.getText().toString();
@@ -248,5 +379,19 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         // Stop sound if app goes to background
         stopNotificationSound();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == OVERLAY_PERMISSION_REQUEST_CODE) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                boolean hasOverlayPermission = Settings.canDrawOverlays(this);
+                updateOverlayPermissionStatus(hasOverlayPermission);
+                requestOverlayPermissionButton.setVisibility(
+                        hasOverlayPermission ? View.GONE : View.VISIBLE
+                );
+            }
+        }
     }
 }

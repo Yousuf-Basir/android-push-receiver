@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Call Request"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Open the doctor app to receive patient call. Tap next patient button on doctor app to manually take the patient call request if any patient call is pending"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:layout_marginBottom="32dp"
+        android:lineSpacingExtra="4dp"
+        android:padding="16dp"/>
+
+    <Button
+        android:id="@+id/openAppButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Open App"
+        android:backgroundTint="#4CAF50"/>
+
+    <Button
+        android:id="@+id/ignoreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mute Ringing"
+        android:backgroundTint="#FF5555"
+        android:layout_marginTop="30dp"/>
+
+</LinearLayout>

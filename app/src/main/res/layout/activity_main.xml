@@ -18,13 +18,67 @@
             android:textStyle="bold"
             android:layout_marginBottom="16dp"/>
 
+        <!-- New Phone Number Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/phoneCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="8dp"
+            android:visibility="gone"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone Number Registration"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="8dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phoneInputLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    app:prefixText="+880"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phoneInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter Phone Number"
+                        android:inputType="number"
+                        android:maxLength="10" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/submitPhoneButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Register Phone Number"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/tokenCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             app:cardElevation="4dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            android:visibility="gone"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -90,6 +144,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Battery Optimization: Checking..."
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/overlayPermissionStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Overlay Permission: Checking..."
                     android:layout_marginBottom="16dp"/>
 
                 <Button
@@ -97,6 +158,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Request Notification Permission"
+                    android:layout_marginBottom="8dp"/>
+
+                <Button
+                    android:id="@+id/requestOverlayPermissionButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Request Overlay Permission"
                     android:layout_marginBottom="8dp"/>
 
                 <Button
@@ -110,7 +178,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginBottom="8dp">
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="20dp"
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -122,7 +192,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        >
 
                         <Button
                             android:id="@+id/testSoundButton"
@@ -149,6 +220,7 @@
                     android:layout_height="wrap_content"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:text="Reset All Permissions"/>
+
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
